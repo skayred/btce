@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-#
+# The BTC-E Ruby API Library
 # Copyright (C) 2013 Maxim Kouprianov
 #
 # This software is provided 'as-is', without any express or implied
