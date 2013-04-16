@@ -81,8 +81,6 @@ module Btce
   end
 
   class Api
-    attr_reader :last_error
-
     def initialize api_key, api_secret
       @bus = Btce::Bus.new(api_key, api_secret)
     end
@@ -132,7 +130,9 @@ module Btce
       options[:method] = "TransHistory"
       response = Types::Response.new(JSON.parse(@bus.request(options)))
       raise "server responded: #{response.error}" if response.success.zero?
-      return response
+      response.return.map do |transaction_json|
+
+      end
     end
 
     # TradeHistory
@@ -197,6 +197,7 @@ module Btce
       def initialize data # from Response.return
         @rights = data["rights"].inject({}) do |arr, pair|
           arr[pair[0]] = pair[1].zero? ? false : true # Allowed or not
+          arr
         end
       end
     end
@@ -212,6 +213,22 @@ module Btce
         @server_time = data["server_time"] # UNIX timestamp
       end
     end
+
+    class Transaction
+      # Data: id type amount currency desc status timestamp
+      %w(id type amount currency desc status timestamp).each do |key|
+        define_method(key) { @values[key.to_sym] }
+      end
+
+      def initialize id, data # from Response.return
+        @values = data.inject({}) do |arr, pair|
+          arr[pair[0]] = pair[1] # arr[key] = value
+          arr
+        end
+
+        @values[:id] = id
+      end
+    end
   end
 end
 
@@ -225,3 +242,5 @@ puts "LTC: %f" % api.balance.amount(Btce::LTC)
 puts "BTC: %f" % api.balance.amount(Btce::BTC)
 puts "============================="
 puts "At: %s" % Time.at(api.stats.server_time)
+
+puts api.trans_history(:count => 1)
