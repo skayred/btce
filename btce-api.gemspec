@@ -1,7 +1,5 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'defines/version'
+require File.expand_path('../lib/defines/version', __FILE__)
 
 Gem::Specification.new do |spec|
   spec.name          = 'btce-api'
@@ -12,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Introduces a handy interface for API requests and useful containers for results}
   spec.homepage      = 'https://github.com/Xlab/btce'
   spec.license       = 'zlib'
+  spec.required_ruby_version = '>= 1.9.3'
 
   spec.files         = `git ls-files`.split($/)
   spec.require_paths = %w(lib)

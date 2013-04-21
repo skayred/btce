@@ -20,19 +20,6 @@
 # Authors: Maxim Kouprianov <maxim@kouprianov.com>
 #
 
-require_relative 'defines/version'
-require_relative 'defines/settings'
-require_relative 'defines/currencies'
-require_relative 'defines/pairs'
-require_relative 'defines/tradetypes'
-require_relative 'bus'
-require_relative 'types'
-
-require 'openssl'
-require 'net/https'
-require 'json'
-require 'cgi'
-
 module Btce
   class Api
     def initialize(api_key, api_secret)
