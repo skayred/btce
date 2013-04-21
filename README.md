@@ -1,5 +1,6 @@
 ## The BTC-E Ruby API Library :ru:
 [![Gem Version](https://badge.fury.io/rb/btce-api.png)](http://badge.fury.io/rb/btce-api)
+[![Build Status](https://travis-ci.org/Xlab/btce.png?branch=master)](https://travis-ci.org/Xlab/btce)
 
 ### Installation
 ```
