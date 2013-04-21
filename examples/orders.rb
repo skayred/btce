@@ -2,7 +2,7 @@
 # VIEW YOUR PLACED ORDERS TEST
 
 require 'yaml'
-require_relative '../lib/api'
+require_relative '../lib/btce'
 
 # LOAD KEYS
 keys = YAML::load( open('keys.yml') )
