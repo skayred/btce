@@ -2,8 +2,7 @@
 # PLACE 1 LTC SELL ORDER, VIEW STATUS, CANCEL, VIEW STATUS
 
 require 'yaml'
-require 'test/unit/assertions'
-require_relative '../lib/btce/api'
+require_relative '../lib/api'
 
 # LOAD KEYS
 keys = YAML::load( open('keys.yml') )

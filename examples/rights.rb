@@ -2,7 +2,7 @@
 # PERMISSIONS CHECK TEST
 
 require 'yaml'
-require_relative '../lib/btce/api'
+require_relative '../lib/api'
 
 # LOAD KEYS
 keys = YAML::load( open('keys.yml') )
