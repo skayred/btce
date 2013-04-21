@@ -1,5 +1,5 @@
 # coding: utf-8
-require File.expand_path('../lib/defines/version', __FILE__)
+require File.expand_path('../lib/btce/defines/version', __FILE__)
 
 Gem::Specification.new do |spec|
   spec.name          = 'btce-api'
