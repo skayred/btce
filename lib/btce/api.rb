@@ -113,6 +113,7 @@ module Btce
 
       options[:method] = 'OrderList'
       response = Types::Response.new(JSON.parse(@bus.request(options)))
+      return [] if response.success.zero? && response.error=="no orders"
       raise "server responded: #{response.error}" if response.success.zero?
       response.return.map do |id, data|
         Types::Order.new(id, data)
