@@ -2,7 +2,7 @@
 # PLACE 1 LTC SELL ORDER, VIEW STATUS, CANCEL, VIEW STATUS
 
 require 'yaml'
-require_relative '../lib/btce'
+require_relative '../lib/btce-private'
 
 # LOAD KEYS
 keys = YAML::load( open('keys.yml') )
